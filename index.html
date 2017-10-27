@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>A Tu Casa</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- angular --->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+    <script src="lib/translate.js"></script>
+
+    <!-- site logic -->
+    <script src="js/app.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="Ctrl" style="height: 100%;">
+
+<h2 translate="TITLE"></h2>
+
+<div >
+    <button class="" ng-click="changeLanguage('en')" >eng</button>
+    <button ng-click="changeLanguage('de')" >det</button>
+</div>
+
+<p translate="TEXT"></p>
+
+
+</body>
+</html>

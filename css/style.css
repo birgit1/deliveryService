@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used *
+    background-image: url("mountain.JPG");*/
+
+    /* Full height */
+
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.bg-top {
+    height: 100%;
+}
+
+.container-fluid  {
+    padding-bottom: 60px;
+    padding-top:  70px;
+}
+
+.box {
+    background: lightseagreen;
+    padding-top: 60px;
+    padding-bottom: 80px;
+    width: 100% !important;
+}
+
+.centre-text2 {
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box-style1 {
+    background-color: purple;
+    color: #ffffff;
+}
+
+.box-style2 {
+    background-color: cornsilk;
+    color: dimgray;
+}
+
