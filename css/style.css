@@ -37,7 +37,8 @@ body, html {
 .testVertChild {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .heading-top {
@@ -46,3 +47,7 @@ body, html {
     color: cadetblue;
 }
 
+a:link,a:hover, a:active, a:visited {
+    color: black !important;
+    text-decoration: none !important;
+}
