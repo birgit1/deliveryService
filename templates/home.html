@@ -1,0 +1,93 @@
+
+
+<div class=" testParent bg bg-top " style="background-image: url('img/chickpeas.jpg')">
+    <div style="float: right; padding-top: 40px">
+        <button type="button" class="btn btn-default" ng-click="changeLanguage('en')" >en</button>
+        <button type="button" class="btn btn-default" ng-click="changeLanguage('fr')" >fr</button>
+    </div>
+    <div class=" testVertChild text-center heading-top">
+        <p>A Tu Casa</p>
+        <img src="img/logo.png" width="20%" >
+        <p translate="TITLE1"></p>
+        <p translate="TITLE2"></p>
+    </div>
+</div>
+
+
+<div class="container-fluid box-style1 text-center" >
+    <h2 translate="HIW1">  </h2>
+    <p translate="HIW2"> </p>
+</div>
+
+
+
+<div class="container-fluid text-center bg-grey">
+    <h2 translate="RESTAURANTS1">Restaurants</h2><br>
+
+    <div class="row text-center" ng-repeat="restaurant in restaurants">
+        <div class="col-sm-3">
+            <a href="https://canmoredining.com/" target="_blank">
+                <div class="thumbnail">
+                    <img src="img/mexicanFood.jpg" >
+                    <p><strong>{{restaurant.name}}</strong></p>
+                    <p>{{restaurant.info[languageKey]}}</p>
+
+                    <button class="btn btn-default">menu</button>
+                </div>
+            </a>
+        </div>
+        <!--<div class="col-sm-3">
+            <a href="https://canmoredining.com/" target="_blank">
+                <div class="thumbnail">
+                    <img src="img/mexicanFood.jpg" >
+                    <p><strong>Restaurant B</strong></p>
+                    <p>information</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="https://canmoredining.com/" target="_blank">
+                <div class="thumbnail">
+                    <img src="img/mexicanFood.jpg" >
+                    <p><strong>Restaurant C</strong></p>
+                    <p>information</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="https://canmoredining.com/" target="_blank">
+                <div class="thumbnail">
+                    <img src="img/mexicanFood.jpg" >
+                    <p><strong>Restaurant D</strong></p>
+                    <p>information</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="https://canmoredining.com/" target="_blank">
+                <div class="thumbnail">
+                    <img src="img/mexicanFood.jpg" >
+                    <p><strong>Restaurant E</strong></p>
+                    <p>information</p>
+                </div>
+            </a>
+        </div>-->
+    </div><br>
+</div>
+
+
+
+
+
+<div class="container-fluid box-style2 text-center">
+    <h1 translate="CONT1"></h1>
+    <div style="padding-top: 1.5%;">
+        <h4 translate="CONT2">  </h4>
+        <h2>1234567</h2>
+        <h4 translate="CONT3"> </h4>
+        <h2> abc@x.ca</h2>
+    </div>
+</div>
+
+
+

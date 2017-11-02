@@ -1,6 +1,34 @@
 
-var app = angular.module('MyApp', ['pascalprecht.translate'])
-    .config(function ($translateProvider) {
+var app = angular.module('MyApp', ['ngRoute', 'pascalprecht.translate', 'Controller'])
+    .config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
+
+    when('/home', {
+        templateUrl: 'templates/home.html',
+        controller: 'Ctrl'
+    }).
+
+    otherwise({
+        redirectTo: '/home'
+    });
+    }])
+    .config(function ($translateProvider)
+    {
+        console.log("try http");
+        /*$http.get("json/translation.json")
+            .success(function (data)
+            {
+                console.log("success");
+                var en = data.en;
+                var fr = data.fr;
+                $translateProvider.translations('en', en);
+
+                $translateProvider.translations('fr', fr);
+            })
+            .error(function (data) {
+                console.log("there was an error");
+            });*/
+
         $translateProvider.translations('en', {
             TITLE1: 'delivering Canmore and area',
             TITLE2: 'call phone#',
@@ -24,9 +52,12 @@ var app = angular.module('MyApp', ['pascalprecht.translate'])
 
         $translateProvider.preferredLanguage('en');
 
-    })
-    .controller('Ctrl', ['$scope', '$translate', function ($scope, $translate) {
+    });/*
+    .controller('Ctrl', function ($scope, $translate)
+    {
         $scope.changeLanguage = function (key) {
             $translate.use(key);
         };
-    }]);
+
+
+    });*/
