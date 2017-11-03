@@ -1,0 +1,17 @@
+
+<div class="container-fluid text-center bg-grey" style="padding-top: 10%">
+    <h2>Restaurant: {{restaurants[selectedRestaurant].name}} </h2><br>
+
+    <div class="row text-center" >
+
+        <div class="col-sm-3" ng-repeat="item in menu" style="float: left">
+                <div class="thumbnail">
+                    <img src="img/mexicanFood.jpg" >
+                    <p><strong>{{item.name}}</strong></p>
+                    <p>{{item.category}}</p>
+                    <p>{{item.description}}</p>
+                </div>
+
+        </div>
+    </div>
+</div>

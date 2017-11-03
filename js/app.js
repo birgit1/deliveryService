@@ -1,16 +1,24 @@
 
-var app = angular.module('MyApp', ['ngRoute', 'pascalprecht.translate', 'Controller'])
+var app = angular.module('MyApp', ['ngRoute', 'pascalprecht.translate', 'Controller', 'MenuController', 'RestaurantController'])
     .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-
-    when('/home', {
-        templateUrl: 'templates/home.html',
-        controller: 'Ctrl'
-    }).
-
-    otherwise({
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'templates/home.html',
+            controller: 'RestaurantCtrl'
+            })
+        .when('/menu',
+            {
+                templateUrl: 'templates/menu.html',
+                controller: 'MenuCtrl'
+            })
+        .when('/menu/:restaurantId',
+            {
+                templateUrl: 'templates/menu.html',
+                controller: 'MenuCtrl'
+            })
+        .otherwise({
         redirectTo: '/home'
-    });
+        });
     }])
     .config(function ($translateProvider)
     {

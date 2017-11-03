@@ -1,7 +1,7 @@
 
 
 var controller = angular.module('Controller', [])
-    .controller('Ctrl',function($scope, $translate)
+    .controller('Ctrl',function($scope, $translate, $location)
     {
         $scope.languageKey = 0;
         $scope.changeLanguage = function (key)
@@ -14,15 +14,12 @@ var controller = angular.module('Controller', [])
         };
 
 
-        $scope.restaurants = [{
-                                "name":"Restaurant A",
-                                "id":0,
-                                "info": ["delicious vegan food", "comida vegana"]
-                            },
-                            {
-                                "name": "MCDonalds",
-                                "id": 1,
-                                "info": ["fast food", "french food"]
-                            }];
+
+        $scope.shoppingCart = [];
+        $scope.shoppingCartItems = 0;
+
+
+        console.log("controller loaded");
+
 
     });

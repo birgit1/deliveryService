@@ -17,12 +17,14 @@
 
     <!-- site logic -->
     <script src="js/controller.js"></script>
+    <script src="js/menuController.js"></script>
+    <script src="js/restaurantController.js"></script>
     <script src="js/app.js"></script>
 </head>
 
-<body ng-app="MyApp" >
+<body ng-app="MyApp" ng-controller="Ctrl">
 
-<div class="orderBar">
+<div class="orderBar" >
     <div class="formgroup" style="float: left">
         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
     </div>
@@ -37,7 +39,7 @@
         <button class="btn btn-default" style="float: right">Place order</button>
         <div class="notification-icon" style="float: right; padding: 10px">
             <span class="glyphicon glyphicon-shopping-cart"></span>
-            <span class="badge">19</span>
+            <span class="badge">{{shoppingCartItems}}</span>
         </div>
 
     </div>
