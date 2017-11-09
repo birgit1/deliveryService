@@ -3,8 +3,8 @@
 <!-- start top picture -->
 <div class=" testParent bg bg-top " style="background-image: url('img/chickpeas.jpg')">
     <div style="float: right; padding-top: 40px">
-        <button type="button" class="btn btn-default" ng-click="changeLanguage('en')" >en</button>
-        <button type="button" class="btn btn-default" ng-click="changeLanguage('fr')" >fr</button>
+        <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('en')" >en</button>
+        <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('fr')" >fr</button>
     </div>
     <div class=" testVertChild text-center heading-top">
         <p>A Tu Casa</p>
@@ -28,12 +28,12 @@
 
     <div class="row text-center" >
 
-        <div class="col-sm-3" ng-repeat="restaurant in restaurants" style="float: left">
+        <div class="col-sm-3" ng-repeat="restaurant in $parent.restaurants" style="float: left">
 
                 <div class="thumbnail" ng-click="showMenu(restaurant.id)">
                     <img src="img/mexicanFood.jpg" >
                     <p><strong>{{restaurant.name}}</strong></p>
-                    <p>{{restaurant.info[languageKey]}}</p>
+                    <p>{{restaurant.info[$parent.languageKey]}}</p>
 
                     <button class="btn btn-default">menu</button>
                 </div>

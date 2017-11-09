@@ -1,5 +1,10 @@
 
-var app = angular.module('MyApp', ['ngRoute', 'pascalprecht.translate', 'Controller', 'MenuController', 'RestaurantController'])
+var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.translate',
+            'Controller',
+    'ModalController',
+            'MenuController',
+            'RestaurantController'
+            ])
     .config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/home', {
@@ -60,12 +65,4 @@ var app = angular.module('MyApp', ['ngRoute', 'pascalprecht.translate', 'Control
 
         $translateProvider.preferredLanguage('en');
 
-    });/*
-    .controller('Ctrl', function ($scope, $translate)
-    {
-        $scope.changeLanguage = function (key) {
-            $translate.use(key);
-        };
-
-
-    });*/
+    });
