@@ -29,6 +29,11 @@ body, html {
     color: cadetblue;
 }
 
+.orange-box {
+    background-color: #BD7334;
+    color: white;
+}
+
 .testParent {
     position: relative;
 }
@@ -44,7 +49,7 @@ body, html {
 .heading-top {
     font-size: xx-large;
     font-weight: 900;
-    color: cadetblue;
+    color: #224668;
 }
 
 a:link,a:hover, a:active, a:visited {
@@ -52,12 +57,23 @@ a:link,a:hover, a:active, a:visited {
     text-decoration: none !important;
 }
 
+.colors {
+    color: #BD7334;
+    color: #224668;
+    color: #4BB84F;
+    color: #C1392D;
+}
+
+.iconStyle {
+    font-size: 50px;
+}
+
 .orderBar {
     position: fixed;
     width: 100%;
     z-index: 900;
     overflow: visible;
-    background-color: dimgray;
+    background-color: #224668;
     color: white;
 }
 

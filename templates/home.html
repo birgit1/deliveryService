@@ -1,14 +1,14 @@
 
 
 <!-- start top picture -->
-<div class=" testParent bg bg-top " style="background-image: url('img/chickpeas.jpg')">
-    <div style="float: right; padding-top: 40px">
+<div class=" testParent bg bg-top " style="background-image: url('img/sushi20.png')">
+    <div style="float: right; padding-top: 40px; opacity: 1">
         <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('en')" >en</button>
         <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('fr')" >fr</button>
     </div>
     <div class=" testVertChild text-center heading-top">
         <p>A Tu Casa</p>
-        <img src="img/logo.png" width="20%" >
+        <img src="img/ATCLogo.jpg" width="40%" >
         <p translate="TITLE1"></p>
         <p translate="TITLE2"></p>
     </div>
@@ -16,10 +16,31 @@
 
 
 <!-- how it works -->
-<div class="container-fluid box-style1 text-center" >
-    <h2 translate="HIW1">  </h2>
-    <p translate="HIW2"> </p>
+<div class="container-fluid text-center orange-box">
+    <h2 translate="HIW1"></h2>
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            <p>You order food</p>
+        </div>
+        <div class="col-sm-2">
+            <span class="glyphicon glyphicon-chevron-right iconStyle"></span>
+        </div>
+        <div class="col-sm-2">
+            <p>Restaurant prepares food</p>
+        </div>
+
+        <div class="col-sm-2">
+            <span class="glyphicon glyphicon-chevron-right iconStyle"></span>
+        </div>
+        <div class="col-sm-2">
+            <p>We pick up the food and deliver it to your door</p>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
 </div>
+
 
 
 <!-- restaurants section -->
@@ -45,14 +66,32 @@
 
 
 <!-- contact details -->
-<div class="container-fluid box-style2 text-center">
-    <h1 translate="CONT1"></h1>
-    <div style="padding-top: 1.5%;">
-        <h4 translate="CONT2">  </h4>
-        <h2>1234567</h2>
-        <h4 translate="CONT3"> </h4>
-        <h2> abc@x.ca</h2>
-    </div>
+<div class="container-fluid orange-box">
+      <h2 class="text-center">CONTACT</h2>
+      <div class="row">
+        <div class="col-sm-5">
+          <p>Contact us and we'll get back to you within 24 hours.</p>
+          <p><span class="glyphicon glyphicon-map-marker"></span> Canmore, AB</p>
+          <p><span class="glyphicon glyphicon-phone"></span> +0123456789</p>
+          <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+        </div>
+        <div class="col-sm-7">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+          </div>
+          <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <button class="btn btn-default pull-right" type="submit">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
 
 
