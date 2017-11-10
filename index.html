@@ -17,36 +17,45 @@
     <script src="https://rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <!-- angular translation library -->
     <script src="lib/translate.js"></script>
+    <!-- session storage -->
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
 
     <!-- ************site logic -->
     <script src="js/controller.js"></script>
+    <script src="js/modalController.js"></script>
     <script src="js/menuController.js"></script>
     <script src="js/restaurantController.js"></script>
-    <!--<script src="js/modalController.js"></script>-->
+    <script src="js/orderController.js"></script>
     <script src="js/app.js"></script>
 </head>
 
 <body ng-app="MyApp" ng-controller="Ctrl">
 
 <!-- header bar -->
-<div class="orderBar" >
-    <div class="formgroup" style="float: left">
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-    </div>
-    <div class="formgroup" style="float: left">
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-default">Login</button>
-
-    <div style="float: right">
-
-
-        <button class="btn btn-default" style="float: right" ng-if="shoppingCartItems != 0">Place order</button>
-        <div class="notification-icon" style="float: right; padding: 10px">
-            <span class="glyphicon glyphicon-shopping-cart"></span>
-            <span class="badge">{{shoppingCartItems}}</span>
+<div class="orderBar">
+    <div ng-if="orderStatus == 'order'">
+        <div class="formgroup" style="float: left">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
         </div>
+        <div class="formgroup" style="float: left">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
 
+        <div style="float: right">
+
+
+            <button class="btn btn-default" style="float: right" ng-if="shoppingCartItems != 0" ng-click="submitOrder()">Place order</button>
+            <div class="notification-icon" style="float: right; padding: 10px">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                <span class="badge">{{shoppingCartItems}}</span>
+            </div>
+
+        </div>
+    </div>
+    <div ng-if="orderStatus == 'orderFinished'">
+        <p>your order will arrive soon</p>
+        <button class="btn btn-default" style="float: right">Edit Order</button>
     </div>
 </div>
 

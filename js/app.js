@@ -1,10 +1,11 @@
 
-var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.translate',
+var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.translate', 'ngStorage',
             'Controller',
-    'ModalController',
+            'ModalController',
             'MenuController',
-            'RestaurantController'
-            ])
+            'RestaurantController',
+            'OrderController'
+])
     .config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/home', {
@@ -21,6 +22,13 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.tran
                 templateUrl: 'templates/menu.html',
                 controller: 'MenuCtrl'
             })
+        .when('/order', {
+            templateUrl: 'templates/orderFood.html',
+            controller: 'OrderCtrl'
+        }).
+        when('/orderSuccessful', {
+        templateUrl: 'templates/orderSuccessful.html'
+    })
         .otherwise({
         redirectTo: '/home'
         });

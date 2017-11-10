@@ -1,5 +1,3 @@
-
-
 var controller = angular.module('Controller', [])
     .controller('Ctrl',function($scope, $translate, $location)
     {
@@ -13,15 +11,18 @@ var controller = angular.module('Controller', [])
 
         };
 
+        $scope.status = ['order', 'loggedIn', 'orderFinished', 'processOrder'];
+        $scope.orderStatus = $scope.status[0];
+
         $scope.restaurants = [{
             "name":"Restaurant A",
             "id":0,
-            "info": ["delicious vegan food", "comida vegana"]
+            "info": ["Food A", "FA"]
         },
             {
-                "name": "MCDonalds",
+                "name": "Restaurant B",
                 "id": 1,
-                "info": ["fast food", "french food"]
+                "info": ["Food B", "FB"]
             }];
 
 
@@ -35,6 +36,12 @@ var controller = angular.module('Controller', [])
             $scope.shoppingCartItems += order.amount;
         };
 
+        $scope.submitOrder = function ()
+        {
+            console.log("submit order");
+            $location.path('/order');
+            $scope.orderStatus = $scope.status[3];
+        };
 
         console.log("controller loaded");
 

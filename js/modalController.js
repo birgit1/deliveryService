@@ -1,16 +1,23 @@
 var modController = angular.module('ModalController', [])
-    .controller('ModCtrl', function ($scope, $ubiModalInstance, param) {
-        $scope.item = {};
-        $scope.item = param;
-        console.log("user form modalctrl");
-        console.log($scope.item);
+    .controller('ModCtrl', function ($scope, $uibModalInstance, item) {
 
-        $scope.submit = function ()
+        $scope.item = item;
+        $scope.order = {};
+        $scope.order.amount = 0;
+        $scope.order.id = item.id;
+
+        $scope.amount = 0;
+
+
+        $scope.doOrder = function ()
         {
-            $ubiModalInstance.close($scope.item);
+            $scope.order.price = $scope.order.amount * $scope.item.price;
+            $uibModalInstance.close($scope.order);
         };
 
-        $scope.cancel = function () {
-            $ubiModalInstance.dismiss('cancel');
+        $scope.cancel = function ()
+        {
+            $scope.amount = 0;
+            $uibModalInstance.dismiss('cancel');
         };
     });
