@@ -1,32 +1,100 @@
-<!doctype html>
-<html ng-app="ui.bootstrap.demo">
+<!DOCTYPE html>
+<html>
 <head>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-    <script src="../js/testController.js"></script>
-    <script src="../js/test2.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title>Shopping Cart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
 </head>
+
 <body>
 
-<div ng-controller="TestCtrl" class="modal-demo">
-
-    <script type="text/ng-template" id="stackedModal.html">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modal-title-{{name}}">The {{name}} modal!</h3>
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">Your online store</a>
+        <div class="navbar-right">
+            <div class="container minicart"></div>
         </div>
-        <div class="modal-body" id="modal-body-{{name}}">
-            Having multiple modals open at once is probably bad UX but it's technically possible.
-        </div>
-    </script>
-
-    <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>
-    <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
-    <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
-
-    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-    <div class="modal-parent">
     </div>
+</nav>
+
+<div class="container-fluid breadcrumbBox text-center">
+    <ol class="breadcrumb">
+        <li><a href="#">Review</a></li>
+        <li class="active"><a href="#">Order</a></li>
+        <li><a href="#">Payment</a></li>
+    </ol>
 </div>
+
+<div class="container text-center">
+
+    <div class="col-md-5 col-sm-12">
+        <div class="bigcart"></div>
+        <h1>Your shopping cart</h1>
+        <p>
+            This is a free and <b><a href="http://tutorialzine.com/2014/04/responsive-shopping-cart-layout-twitter-bootstrap-3/" title="Read the article!">responsive shopping cart layout, made by Tutorialzine</a></b>. It looks nice on both desktop and mobile browsers. Try it by resizing your window (or opening it on your smartphone and pc).
+        </p>
+    </div>
+
+    <div class="col-md-7 col-sm-12 text-left">
+        <ul>
+            <li class="row list-inline columnCaptions">
+                <span>QTY</span>
+                <span>ITEM</span>
+                <span>Price</span>
+            </li>
+            <li class="row">
+                <span class="quantity">1</span>
+                <span class="itemName">Birthday Cake</span>
+                <span class="popbtn"><a class="arrow"></a></span>
+                <span class="price">$49.95</span>
+            </li>
+            <li class="row">
+                <span class="quantity">50</span>
+                <span class="itemName">Party Cups</span>
+                <span class="popbtn"><a class="arrow"></a></span>
+                <span class="price">$5.00</span>
+            </li>
+            <li class="row">
+                <span class="quantity">20</span>
+                <span class="itemName">Beer kegs</span>
+                <span class="popbtn"><a class="arrow"></a></span>
+                <span class="price">$919.99</span>
+            </li>
+            <li class="row">
+                <span class="quantity">18</span>
+                <span class="itemName">Pound of beef</span>
+                <span class="popbtn"><a class="arrow"></a></span>
+                <span class="price">$269.45</span>
+            </li>
+            <li class="row">
+                <span class="quantity">1</span>
+                <span class="itemName">Bullet-proof vest</span>
+                <span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
+                <span class="price">$450.00</span>
+            </li>
+            <li class="row totals">
+                <span class="itemName">Total:</span>
+                <span class="price">$1694.43</span>
+                <span class="order"> <a class="text-center">ORDER</a></span>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- The popover content -->
+
+<div id="popover" style="display: none">
+    <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+</div>
+
+<!-- JavaScript includes -->
+
+
 </body>
 </html>

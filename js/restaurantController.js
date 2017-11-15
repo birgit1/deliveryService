@@ -15,5 +15,18 @@ var controller = angular.module('RestaurantController', [])
 
         console.log(" rest controller loaded");
 
-
+        $scope.slides = [{
+            "id":0,
+            "text": "slide 0"
+        },
+            {
+                "id":1,
+                "text": "slide 1"
+            },
+            {
+                "id":2,
+                "text": "slide 2"
+            }
+        ];
+        $scope.rating =0;
     });

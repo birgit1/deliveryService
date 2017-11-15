@@ -1,40 +1,147 @@
-<!doctype html>
-<html lang="en">
+<!--
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+-->
 
-<head>
-    <meta charset="UTF-8">
-    <title>Angular Modal Forms</title>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <style>
-        body 	{ padding-top:30px; }
-    </style>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#myPage">A TU CASA DELIVERY</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#HIW" translate="HIW1">HOW IT WORKS</a></li>
+                <li><a href="#restaurants">RESTAURANTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <!-- JS ===================== -->
-    <!-- load angular -->
-    <script src="http://code.angularjs.org/1.2.6/angular.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
-    <script src="../js/testApp.js"></script>
-    <script src="../js/testController.js"></script>
-</head>
+<!-- start top picture -->
+<div id="home" class=" testParent bg bg-top " style="background-image: url('img/sushi20.png')">
+    <div style="float: right; padding-top: 40px; opacity: 1">
+        <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('en')" >en</button>
+        <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('fr')" >fr</button>
+    </div>
+    <div class=" testVertChild text-center heading-top">
+        <p>A Tu Casa</p>
+        <img src="img/ATCLogo.jpg" width="40%" >
+        <p translate="TITLE1"></p>
+        <p translate="TITLE2"></p>
+    </div>
+</div>
 
-<body ng-app="modalFormApp">
-<div class="container">
-    <div class="col-sm-8 col-sm-offset-2">
-
-        <!-- PAGE HEADER -->
-        <div class="page-header">
-            <h1>AngularJS Form Validation</h1>
+<!-- how it works -->
+<div id="HIW" class="container-fluid text-center orange-box">
+    <h2 translate="HIW1"></h2>
+    <br>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            <p>You order food</p>
+        </div>
+        <div class="col-sm-2">
+            <span class="glyphicon glyphicon-chevron-right iconStyle"></span>
+        </div>
+        <div class="col-sm-2">
+            <p>Restaurant prepares food</p>
         </div>
 
-        <div ng-controller="TestCtrl">
-            <h1>hello {{name}} -- {{userForm.id}} -- {{userForm.name}}</h1>
-            <div class="page-body">
-                <button class="btn btn-primary" ng-click="showForm()">Create Account</button>
+        <div class="col-sm-2">
+            <span class="glyphicon glyphicon-chevron-right iconStyle"></span>
+        </div>
+        <div class="col-sm-2">
+            <p>We pick up the food and deliver it to your door</p>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
+
+
+<!-- restaurants section -->
+<div id="restaurants" class="container-fluid text-center bg-grey">
+    <h2 translate="RESTAURANTS1">Restaurants</h2><br>
+
+    <div class="row text-center" >
+
+        <div class="col-sm-3" ng-repeat="restaurant in $parent.restaurants" style="float: left">
+
+            <div class="thumbnail" ng-click="showMenu(restaurant.id)">
+                <img src="img/mexicanFood.jpg" >
+                <p><strong>{{restaurant.name}}</strong></p>
+                <p>{{restaurant.info[$parent.languageKey]}}</p>
+
+                <button class="btn btn-default">menu</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div >
+<div uib-carousel interval="5000"  active="active">
+    <div uib-slide ng-repeat="slide in slides" index="slide.id">
+        <img ng-src="img/chickpeas.jpg" alt="img1" width="100%" height="400px">
+        <div class="carousel-caption">
+        <h1>{{slide.text}}</h1>
+        <h2>xxx {{slide.id}} xxx</h2>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- rating -->
+<div id="feedback" class="container-fluid">
+    <h2>Give us your feedback</h2>
+    <span uib-rating ng-model="rating" max="5" ></span>
+    <p >{{rating}} </p>
+    <textarea class="form-control" name="feedbackComments" placeholder="What did you like and what can we improve" rows="5"></textarea><br>
+    <div class="row">
+        <div class="col-sm-12 form-group">
+            <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid  orange-box">
+    <h2 class="text-center">CONTACT</h2>
+    <div class="row">
+        <div class="col-sm-5">
+            <p>Contact us and we'll get back to you within 24 hours.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Canmore, AB</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+        </div>
+        <div class="col-sm-7 ">
+            <div class="row">
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-</body>
 
-</html>
+<footer class="container-fluid text-center">
+    <a href="#home" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p> impressum</p>
+</footer>
+

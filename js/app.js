@@ -9,21 +9,21 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.tran
     .config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/home', {
-            templateUrl: 'templates/home.html',
+            templateUrl: 'templates/testInd.html',
             controller: 'RestaurantCtrl'
             })
         .when('/menu',
             {
-                templateUrl: 'templates/menu.html',
+                templateUrl: 'templates/orderNew.html',
                 controller: 'MenuCtrl'
             })
         .when('/menu/:restaurantId',
             {
-                templateUrl: 'templates/menu.html',
+                templateUrl: 'templates/orderNew.html',
                 controller: 'MenuCtrl'
             })
         .when('/order', {
-            templateUrl: 'templates/orderFood.html',
+            templateUrl: 'templates/orderNew.html',
             controller: 'OrderCtrl'
         }).
         when('/orderSuccessful', {

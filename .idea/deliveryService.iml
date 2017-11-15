@@ -12,5 +12,7 @@
     <orderEntry type="library" name="ui-bootstrap-tpls-0.9.0" level="application" />
     <orderEntry type="library" name="ui-bootstrap-tpls-2.5.0" level="application" />
     <orderEntry type="library" name="ngStorage" level="application" />
+    <orderEntry type="library" name="angular-animate" level="application" />
+    <orderEntry type="library" name="angular-sanitize" level="application" />
   </component>
 </module>

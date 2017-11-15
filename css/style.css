@@ -30,7 +30,7 @@ body, html {
 }
 
 .orange-box {
-    background-color: #BD7334;
+    background-color: #C23A2D;
     color: white;
 }
 
@@ -62,6 +62,7 @@ a:link,a:hover, a:active, a:visited {
     color: #224668;
     color: #4BB84F;
     color: #C1392D;
+    color: #C23A2D;
 }
 
 .iconStyle {

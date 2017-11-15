@@ -1,0 +1,21 @@
+[
+   {
+    "restaurant": "R1",
+    "name": "tofu",
+    "info": ["tofu dish", "FFtofu DishFF"],
+     "category": ["healthy", "main"],
+    "ingredients": [["tofu", "vegtables"], ["FtofoF", "Fveggies"]],
+    "tags": [["vegan", "glutenfree", "diary free"], ["Fveg", "Fglut", "Fdiary"]],
+    "price":1.4
+  },
+  {
+    "restaurant": "Pizza Service",
+    "name": "pizza",
+    "info": "pizza with veggies",
+    "category": ["italian", "healthy"],
+    "ingredients": ["veggies", "cheese"],
+    "tags":  ["vegetarian"],
+    "price": 17
+  }
+
+]
