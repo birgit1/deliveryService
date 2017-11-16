@@ -14,5 +14,6 @@
     <orderEntry type="library" name="ngStorage" level="application" />
     <orderEntry type="library" name="angular-animate" level="application" />
     <orderEntry type="library" name="angular-sanitize" level="application" />
+    <orderEntry type="library" name="angular-scroll" level="application" />
   </component>
 </module>

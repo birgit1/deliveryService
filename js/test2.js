@@ -1,4 +1,4 @@
-angular.module('ui.bootstrap.demo', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+angular.module('ui.bootstrap.demo', ['', 'ngSanitize', 'ui.bootstrap']);
 angular.module('ui.bootstrap.demo').controller('RatingDemoCtrl', function ($scope) {
     $scope.rate = 0;
     $scope.max = 5;

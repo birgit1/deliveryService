@@ -1,5 +1,5 @@
 
-var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.translate', 'ngStorage',
+var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.translate', 'ngStorage', 'duScroll',
             'Controller',
             'ModalController',
             'MenuController',
