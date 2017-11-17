@@ -1,7 +1,7 @@
 
 
 var controller = angular.module('MenuController', [])
-    .controller('MenuCtrl', function ($uibModal, $log, $scope, $routeParams) {
+    .controller('MenuCtrl', function ($uibModal, $log, $scope, $routeParams, $location) {
 
         $scope.menu = [{
             "name":"ice cream",
@@ -49,5 +49,47 @@ var controller = angular.module('MenuController', [])
             });
         };
 
+        $scope.restaurants = [{
+            "name":"Restaurant A",
+            "id":0,
+            "info": ["Food A", "FA"]
+        },
+            {
+                "name": "Restaurant B",
+                "id": 1,
+                "info": ["Food B", "FB"]
+            },
+            {
+                "name": "Restaurant C",
+                "id": 2,
+                "info": ["Food B", "FB"]
+            }];
+
+        $scope.initCheckRestaurant = function()
+        {
+            for(var i=0; i<$scope.restaurants.length; i++)
+            {
+                $scope.restaurants.selected = true;
+            }
+        };
+        $scope.initCheckRestaurant();
+
+        $scope.toggleSelection = function( id)
+        {
+            // Is currently selected
+            $scope.restaurants[id].selected = $scope.restaurants[id].selected !== true;
+            console.log("toggle button");
+            console.log($scope.restaurants);
+        };
+
+        $scope.orderBy = function(value)
+        {
+            console.log("order by: "+value);
+        };
+
+        $scope.goToOrder = function()
+        {
+            $location.path('/order');
+        }
 
     });

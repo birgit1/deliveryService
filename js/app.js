@@ -23,7 +23,7 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.tran
                 controller: 'MenuCtrl'
             })
         .when('/order', {
-            templateUrl: 'templates/orderNew.html',
+            templateUrl: 'templates/orderFood.html',
             controller: 'OrderCtrl'
         }).
         when('/orderSuccessful', {

@@ -13,6 +13,12 @@ var controller = angular.module('RestaurantController', [])
             console.log("id: "+id);
         };
 
+        $scope.openMenu = function()
+        {
+            console.log("open Menu");
+            $location.path('/menu');
+        };
+
         console.log(" rest controller loaded");
 
         $scope.slides = [{

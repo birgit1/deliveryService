@@ -67,7 +67,7 @@ h4 {
 .item span {
     font-style: normal;
 }
-.panel {
+/*.panel {
     border: 1px solid #C23A2D;
     border-radius:0 !important;
     transition: box-shadow 0.5s;
@@ -104,7 +104,7 @@ h4 {
     margin: 15px 0;
     background-color: #C23A2D;
     color: #fff;
-}
+}*/
 .navbar {
     margin-bottom: 0;
     background-color: #C23A2D;
