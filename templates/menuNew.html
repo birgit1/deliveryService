@@ -1,0 +1,85 @@
+
+<div style="background-color: gainsboro">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">A TU CASA DELIVERY</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ng-click="goToOrder()">ORDER
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                            <span class="badge">{{shoppingCartItems}}</span>
+                        </a>
+                    </li>
+                    <li><a>TOTAL: {{totalPrice}}</a></li>
+                    <li><a ng-click="goToOrder()">ORDER</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- filter -->
+    <div class="col-sm-2" style="padding-top: 5%">
+        <uib-accordion close-others="false">
+            <div uib-accordion-group class="panel-default">
+                <uib-accordion-heading>
+                    RESTAURANTS <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </uib-accordion-heading>
+                <label ng-repeat="r in restaurants">
+                    <input
+                            type="checkbox"
+                            class="btn btn-primary"
+                            value="{{r.name}}"
+                            ng-checked="r.selected"
+                            ng-click="toggleSelection(r.id)"
+                    > {{r.name}}
+                </label>
+            </div>
+
+        </uib-accordion>
+    </div>
+
+    <!-- menu -->
+    <div class="col-sm-8"  style="padding-top: 5%">
+
+        <div>
+            <!-- Single button -->
+            <div class="btn-group" uib-dropdown is-open="status.isopen">
+                <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>
+                    Sort <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                    <li role="menuitem" ng-click="orderBy('restaurant')"><a>Restaurant</a></li>
+                    <li role="menuitem" ng-click="orderBy('category')"><a>Category</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div uib-alert class="alert-danger">Restaurant A</div>
+
+        <div ng-repeat="item in menu"  class="panel panel-default" style="clear: both;">
+
+                <div  ng-click="open(item.id)">
+                    <!--<img src="img/mexicanFood.jpg" width="50px" height="50px" style="float: left">-->
+                    <div class="panel-heading" >
+                        <p style="float: left"><strong>{{item.name}}</strong></p>
+                        <p style="float: right">price {{item.price}}</p>
+                    </div>
+                    <div class="panel-body">
+                        <button class="btn" ng-click="add(item.id)" style="float: right; z-index: 998"><i class="glyphicon glyphicon-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div>

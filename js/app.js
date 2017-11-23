@@ -6,24 +6,25 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.tran
             'RestaurantController',
             'OrderController'
 ])
-    .config(['$routeProvider', function($routeProvider) {
+    .config(['$routeProvider', function($routeProvider)
+    {
     $routeProvider
         .when('/home', {
-            templateUrl: 'templates/testInd.html',
+            templateUrl: 'templates/home.html',
             controller: 'RestaurantCtrl'
             })
         .when('/menu',
             {
-                templateUrl: 'templates/orderNew.html',
+                templateUrl: 'templates/menuNew.html',
                 controller: 'MenuCtrl'
             })
         .when('/menu/:restaurantId',
             {
-                templateUrl: 'templates/orderNew.html',
+                templateUrl: 'templates/menuNew.html',
                 controller: 'MenuCtrl'
             })
         .when('/order', {
-            templateUrl: 'templates/orderFood.html',
+            templateUrl: 'templates/order.html',
             controller: 'OrderCtrl'
         }).
         when('/orderSuccessful', {
