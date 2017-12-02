@@ -16,6 +16,7 @@ var controller = angular.module('MenuController', [])
                 "price":1.2
             }];
 
+        //** session **********************************************//
         $scope.checkSessionStorage = function()
         {
             if($sessionStorage.orderCart)
@@ -43,6 +44,7 @@ var controller = angular.module('MenuController', [])
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'templates/menuItemModal.html',
                 controller: 'ModCtrl',
+                windowClass: 'center-modal',
                 controllerAs: this,
 
                 resolve: {
@@ -107,6 +109,48 @@ var controller = angular.module('MenuController', [])
         $scope.goToOrder = function()
         {
             $location.path('/order');
-        }
+        };
 
+        //****** delivery time ***************************************//
+        $scope.deliveryTimeSelection = "ASAP";
+
+        $scope.deliveryTime = new Date();
+        $scope.deliveryTime.setMinutes(roundMin($scope.deliveryTime.getMinutes()));
+
+        var week = new Date();
+        week.setDate(week.getDate()+7);
+
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            maxDate: week,
+            minDate: new Date(),
+            startingDay: 1,
+            showWeeks: true
+        };
+
+        $scope.open1 = function() {
+            $scope.popup1.opened = true;
+        };
+
+        $scope.setDate = function(year, month, day) {
+            $scope.deliveryTime = new Date(year, month, day);
+        };
+
+        $scope.popup1 = {
+            opened: false
+        };
+
+        var minTime = Date.now();
+
+        $scope.timeOptions = {
+            hourStep: 1,
+            minuteStep: 5,
+            showMeridian: true,
+            minTime: minTime
+        };
+
+        function roundMin(min)
+        {
+            return Math.ceil(min/5)*5;
+        }
     });

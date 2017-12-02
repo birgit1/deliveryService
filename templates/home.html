@@ -42,20 +42,20 @@
     <br>
     <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 slide">
             <p>You order food</p>
         </div>
         <div class="col-sm-2">
             <span class="glyphicon glyphicon-chevron-right iconStyle"></span>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 slide">
             <p>Restaurant prepares food</p>
         </div>
 
         <div class="col-sm-2">
             <span class="glyphicon glyphicon-chevron-right iconStyle"></span>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2 slide" >
             <p>We pick up the food and deliver it to your door</p>
         </div>
         <div class="col-sm-1"></div>
@@ -98,12 +98,12 @@
 <!-- rating -->
 <div id="feedback" class="container-fluid">
     <h2>Give us your feedback</h2>
-    <span uib-rating ng-model="rating" max="5" ></span>
-    <p >{{rating}} </p>
-    <textarea class="form-control" name="feedbackComments" placeholder="What did you like and what can we improve" rows="5"></textarea><br>
+    <span uib-rating ng-model="rating.stars" max="5" ></span>
+    <textarea class="form-control" name="feedbackComments" placeholder="What did you like and what can we improve" rows="5" ng-model="rating.text"></textarea><br>
+    <div uib-alert class="alert-success" ng-hide="!rating.submit">Thank you for your feedback!</div>
     <div class="row">
         <div class="col-sm-12 form-group">
-            <button class="btn btn-default pull-right" type="submit">Send</button>
+            <button class="btn btn-default pull-right" type="submit" ng-click="submitRating()">Send</button>
         </div>
     </div>
 </div>

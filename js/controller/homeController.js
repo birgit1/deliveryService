@@ -19,7 +19,9 @@ var controller = angular.module('RestaurantController', [])
             $location.path('/menu');
         };
 
-        console.log(" rest controller loaded");
+        console.log("rests: ");
+        console.log($scope.$parent.restaurants.lengt);
+
 
         $scope.slides = [{
             "id":0,
@@ -34,5 +36,15 @@ var controller = angular.module('RestaurantController', [])
                 "text": "slide 2"
             }
         ];
-        $scope.rating =0;
+
+        $scope.rating = {};
+        $scope.rating.submit = false;
+
+        $scope.submitRating = function()
+        {
+            // send rating to server
+            $scope.rating.stars = 0;
+            $scope.rating.text = "";
+            $scope.rating.submit = true;
+        }
     });
