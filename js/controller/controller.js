@@ -13,29 +13,12 @@ var controller = angular.module('Controller', [])
 
         $scope.path = "http://localhost:1234";
 
-        $scope.status = ['order', 'loggedIn', 'orderFinished', 'processOrder'];
+        $scope.status = ['order', 'orderFinished', 'processOrder'];
         $scope.orderStatus = $scope.status[0];
 
-        $scope.restaurants = $http({
-            method : "GET",
-            url : $scope.path+"/restaurants/getAll"
-        }).then(function onSuccess(response) {
-            $scope.restaurants = response.data;
-            console.log(response.data);
-        }, function onError(response) {
-            $scope.restaurants = response.statusText;
-        });
 
-        $scope.tags =
-            $http({
-                method : "GET",
-                url : $scope.path+"/restaurants/tags"
-            }).then(function onSuccess(response) {
-                $scope.tags = response.data;
-                console.log(response.data);
-            }, function onError(response) {
-                $scope.tags = response.statusText;
-            });
+
+
         console.log("data: ");
         console.log($scope.tags);
 

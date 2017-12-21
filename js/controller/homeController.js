@@ -1,8 +1,18 @@
 
 
 var controller = angular.module('RestaurantController', [])
-    .controller('RestaurantCtrl',function($scope, $translate, $location)
+    .controller('RestaurantCtrl',function($scope, $translate, $location, $http)
     {
+        $scope.restaurants = $http({
+            method : "GET",
+            url : $scope.path+"/restaurant/getRestaurants",
+            params: {sendImage: true}
+        }).then(function onSuccess(response) {
+            $scope.restaurants = response.data;
+            console.log(response.data);
+        }, function onError(response) {
+            $scope.restaurants = response.statusText;
+        });
 
         $scope.selectedRestaurant = 0;
         $scope.showMenu = function(id)
@@ -18,9 +28,6 @@ var controller = angular.module('RestaurantController', [])
             console.log("open Menu");
             $location.path('/menu');
         };
-
-        console.log("rests: ");
-        console.log($scope.$parent.restaurants.lengt);
 
 
         $scope.slides = [{

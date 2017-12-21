@@ -1,20 +1,53 @@
 
 
 var controller = angular.module('MenuController', [])
-    .controller('MenuCtrl', function ($uibModal, $log, $scope, $routeParams, $location, $sessionStorage) {
+    .controller('MenuCtrl', function ($uibModal, $log, $scope, $routeParams, $location, $sessionStorage, $http) {
 
-        $scope.menu = [{
-            "name":"ice cream",
-            "id":0,
-            "category":"dessert",
-            "price":1.4
-        },
-            {
-                "name":"Tofu",
-                "id":1,
-                "category":"main",
-                "price":1.2
-            }];
+        $scope.menu = [];
+        $http({
+            method : "GET",
+            url : $scope.$parent.path+"/menu/getMenu"
+        }).then(function onSuccess(response) {
+            $scope.menu = response.data;
+        }, function onError(response) {
+            console.log("error");
+        });
+
+        $scope.tags = [];
+        $http({
+            method : "GET",
+            url : $scope.$parent.path+"/menu/getFoodAttributes"
+        }).then(function onSuccess(response) {
+            $scope.tags = response.data;
+            console.log("tags");
+            console.log($scope.tags);
+        }, function onError(response) {
+            console.log("error");
+        });
+
+        $scope.categories = [];
+        $http({
+            method : "GET",
+            url : $scope.$parent.path+"/menu/getFoodCategories"
+        }).then(function onSuccess(response) {
+            $scope.categories = response.data;
+        }, function onError(response) {
+            console.log("error");
+        });
+
+        $scope.restaurants = [];
+        $http({
+            method : "GET",
+            url : $scope.$parent.path+"/restaurant/getRestaurants",
+            params: {sendImage: false}
+        }).then(function onSuccess(response) {
+            $scope.restaurants = response.data;
+            for(var i=0; i<$scope.restaurants.length; i++)
+                $scope.restaurants[i].selected = true;
+            console.log(response.data);
+        }, function onError(response) {
+            $scope.restaurants = response.statusText;
+        });
 
         //** session **********************************************//
         $scope.checkSessionStorage = function()
@@ -34,7 +67,6 @@ var controller = angular.module('MenuController', [])
         };
         $scope.checkSessionStorage();
 
-        $scope.restaurantId = $routeParams.restaurantId;
 
         $scope.open = function (id)
         {
@@ -68,37 +100,38 @@ var controller = angular.module('MenuController', [])
             });
         };
 
-        $scope.restaurants = [{
-            "name":"Restaurant A",
-            "id":0,
-            "info": ["Food A", "FA"]
-        },
-            {
-                "name": "Restaurant B",
-                "id": 1,
-                "info": ["Food B", "FB"]
-            },
-            {
-                "name": "Restaurant C",
-                "id": 2,
-                "info": ["Food B", "FB"]
-            }];
-
-        $scope.initCheckRestaurant = function()
+        $scope.restaurantSelection = [];
+        $scope.toggleRestaurantSelection = function( id)
         {
-            for(var i=0; i<$scope.restaurants.length; i++)
-            {
-                $scope.restaurants.selected = true;
-            }
-        };
-        $scope.initCheckRestaurant();
-
-        $scope.toggleSelection = function( id)
-        {
-            // Is currently selected
             $scope.restaurants[id].selected = $scope.restaurants[id].selected !== true;
-            console.log("toggle button");
-            console.log($scope.restaurants);
+        };
+
+        $scope.tagSelection = $scope.tags;
+        $scope.toggleTagSelection = function(id)
+        {
+            var idx = $scope.tagSelection.indexOf($scope.tags[id]);
+            if (idx > -1) {
+                $scope.tagSelection.splice(idx, 1);
+            }
+            else {
+                $scope.tagSelection.push($scope.tags[id]);
+            }
+            console.log($scope.tagSelection);
+        };
+
+        $scope.categorySelection = [];
+        console.log("seldcttion");
+        console.log($scope.categorySelection);
+        $scope.toggleCategorySelection = function(id)
+        {
+            var idx = $scope.categorySelection.indexOf($scope.categories[id]);
+            if (idx > -1) {
+                $scope.categorySelection.splice(idx, 1);
+            }
+            else {
+                $scope.categorySelection.push($scope.categories[id]);
+            }
+            console.log($scope.categorySelection);
         };
 
         $scope.orderBy = function(value)
@@ -152,5 +185,25 @@ var controller = angular.module('MenuController', [])
         function roundMin(min)
         {
             return Math.ceil(min/5)*5;
+        }
+
+        $scope.updateSearch = function()
+        {
+            var query = {};
+            query.language = $scope.$parent.languageKey;
+            query.deliveryTime = $scope.deliveryTime;
+            query.tags = $scope.tags;
+            query.restaurants = $scope.restaurants;
+
+            $scope.restaurants = $http({
+                method : "GET",
+                url : $scope.path+"/restaurants/search",
+                params: query
+            }).then(function onSuccess(response) {
+                $scope.restaurants = response.data;
+                console.log(response.data);
+            }, function onError(response) {
+                console.log("error");
+            });
         }
     });

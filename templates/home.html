@@ -25,10 +25,10 @@
 
 <!-- start top picture -->
 <div id="home" class=" testParent bg bg-top " style="background-image: url('img/sushi20.png')">
-    <div style="float: right; padding-top: 40px; opacity: 1">
+    <!--<div style="float: right; padding-top: 40px; opacity: 1">
         <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('en')" >en</button>
         <button type="button" class="btn btn-default" ng-click="$parent.changeLanguage('fr')" >fr</button>
-    </div>
+    </div>-->
     <div class=" testVertChild text-center heading-top">
         <img src="img/logoTr.png" width="100%" >
         <p >DELIVERING CANMORE</p>
@@ -69,12 +69,13 @@
 
     <div class="row text-center" >
 
-        <div class="col-sm-3" ng-repeat="restaurant in $parent.restaurants" style="float: left">
+        <div class="col-sm-3" ng-repeat="restaurant in restaurants" style="float: left">
 
-            <div class="thumbnail" ng-click="showMenu(restaurant.id)">
-                <img src="img/mexicanFood.jpg" >
+            <div class="thumbnail" ng-click="showMenu(restaurant._id)">
+
+                <img ng-src="{{'data:image/png;base64,'+restaurant.images[0]}}" >
                 <p><strong>{{restaurant.name}}</strong></p>
-                <p>{{restaurant.info[$parent.languageKey]}}</p>
+                <p>{{restaurant.info.en}}</p>
 
                 <button class="btn btn-default">menu</button>
             </div>

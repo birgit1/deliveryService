@@ -28,21 +28,42 @@
     <!-- filter -->
     <div class="col-sm-3" style="padding-top: 5%">
         <uib-accordion close-others="false">
+            <!-- restaurants -->
             <div uib-accordion-group class="panel-default">
                 <uib-accordion-heading>
                     RESTAURANTS <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
                 </uib-accordion-heading>
                 <p ng-repeat="r in restaurants">
-                    <input
-                            type="checkbox"
-                            class="btn btn-primary"
-                            value="{{r.name}}"
-                            ng-checked="r.selected"
-                            ng-click="toggleSelection(r.id)"
-                    > {{r.name}}
+                    <input type="checkbox" class="btn btn-primary" ng-checked="r.selected"
+                            ng-click="toggleRestaurantSelection($index)"> {{r.name}}
                 </p>
             </div>
 
+            <!-- category -->
+            <div ng-hide="categories.length <= 0">
+                <div uib-accordion-group class="panel-default">
+                <uib-accordion-heading>
+                    FOOD CATEGORIES <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                </uib-accordion-heading>
+                <p ng-repeat="c in categories">
+                    <input type="checkbox" class="btn btn-primary" ng-checked="c.selected" ng-click="toggleCategorySelection($index)"> {{c}}
+                </p>
+            </div>
+            </div>
+
+            <!-- tag special food -->
+            <div ng-hide="tags.length <= 0">
+                <div uib-accordion-group class="panel-default">
+                    <uib-accordion-heading>
+                        SPECIAL FOOD <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+                    </uib-accordion-heading>
+                    <p ng-repeat="t in tags">
+                        <input type="checkbox" class="btn btn-primary" ng-checked="t.selected" ng-click="toggleTagSelection($index)"> {{t}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- delivery time  -->
             <div uib-accordion-group class="panel-default">
                 <uib-accordion-heading>
                     DELIVERY TIME <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
@@ -62,6 +83,7 @@
                     </div>
                 </div>
             </div>
+            <div class="btn btn-default" ng-click="updateSearch()">search</div>
 
         </uib-accordion>
     </div>
@@ -90,11 +112,12 @@
                 <div  ng-click="open(item.id)">
                     <!--<img src="img/mexicanFood.jpg" width="50px" height="50px" style="float: left">-->
                     <div class="panel-heading" >
-                        <p style="float: left"><strong>{{item.name}}</strong></p>
+                        <p style="float: left"><strong>{{item.name.en}}</strong></p>
+
                         <p style="float: right">price {{item.price}}</p>
                     </div>
                     <div class="panel-body">
-                        <button class="btn" ng-click="add(item.id); event.stopPropagation(); " style="float: right; z-index: 998"><i class="glyphicon glyphicon-plus"></i></button>
+                        <button class="btn" ng-click="add(item._id); event.stopPropagation(); " style="float: right; z-index: 998"><i class="glyphicon glyphicon-plus"></i></button>
                     </div>
                 </div>
             </div>
