@@ -3,6 +3,7 @@
 var controller = angular.module('RestaurantController', [])
     .controller('RestaurantCtrl',function($scope, $translate, $location, $http)
     {
+        console.log("home controller");
         $scope.restaurants = $http({
             method : "GET",
             url : $scope.path+"/restaurant/getRestaurants",
@@ -25,8 +26,8 @@ var controller = angular.module('RestaurantController', [])
 
         $scope.openMenu = function()
         {
-            console.log("open Menu");
-            $location.path('/menu');
+            console.log("SEARCH")
+            $location.path('/search');
         };
 
 
@@ -49,9 +50,37 @@ var controller = angular.module('RestaurantController', [])
 
         $scope.submitRating = function()
         {
-            // send rating to server
-            $scope.rating.stars = 0;
-            $scope.rating.text = "";
+            console.log("text: "+$scope.rating.text);
+            var res = $http.post($scope.path +'/contact/rating', $scope.rating);
+
             $scope.rating.submit = true;
-        }
+
+            res.then(function (data, status, headers, config) {
+                console.log(data);
+                $scope.rating.text = "";
+                $scope.rating.stars = 0;
+            });
+            res.catch(function (data, status, header, config) {
+                console.log("error");
+            });
+        };
+
+        $scope.contact = {};
+        $scope.submitContact = function()
+        {
+
+            console.log("text: "+$scope.contact.text);
+            var res = $http.post($scope.path +'/contact/contact', $scope.contact);
+
+            res.then(function (data, status, headers, config) {
+                console.log(data);
+
+                $scope.contact.text = "";
+                $scope.contact.email = "";
+                $scope.contact.name = "";
+            });
+            res.catch(function (data, status, header, config) {
+                console.log("error");
+            });
+        };
     });

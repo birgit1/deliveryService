@@ -92,3 +92,13 @@ a:link,a:hover, a:active, a:visited {
     height: 80%;
     margin-left: -10%;
 }
+
+.img-select{
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.img-select:hover, .img-select:active{
+        opacity: 0.5
+}

@@ -5,7 +5,7 @@ var controller = angular.module('OrderController', [])
     {
         console.log("order controller");
         $scope.userInfo = {};
-
+        $scope.orderStateOpen = true;
 
         $scope.submitOrder = function()
         {
@@ -13,6 +13,11 @@ var controller = angular.module('OrderController', [])
             console.log($scope.userInfo);
             $location.path('/orderSuccessful');
             $scope.$parent.orderStatus = $scope.$parent.status[2];
+        }
+
+        $scope.confirmOrder = function()
+        {
+            console.log("order confirmed");
         }
 
 

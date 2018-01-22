@@ -100,7 +100,7 @@
 <div id="feedback" class="container-fluid">
     <h2>Give us your feedback</h2>
     <span uib-rating ng-model="rating.stars" max="5" ></span>
-    <textarea class="form-control" name="feedbackComments" placeholder="What did you like and what can we improve" rows="5" ng-model="rating.text"></textarea><br>
+    <textarea class="form-control" placeholder="What did you like and what can we improve" rows="5" ng-model="rating.text"></textarea><br>
     <div uib-alert class="alert-success" ng-hide="!rating.submit">Thank you for your feedback!</div>
     <div class="row">
         <div class="col-sm-12 form-group">
@@ -122,16 +122,16 @@
         <div class="col-sm-7 ">
             <div class="row">
                 <div class="col-sm-6 form-group">
-                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" ng-model="contact.name">
                 </div>
                 <div class="col-sm-6 form-group">
-                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" ng-model="contact.email" required>
                 </div>
             </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5" ng-model="contact.text"></textarea><br>
             <div class="row">
                 <div class="col-sm-12 form-group">
-                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                    <button class="btn btn-default pull-right" type="submit" ng-click="submitContact()">Send</button>
                 </div>
             </div>
         </div>
@@ -145,4 +145,3 @@
     </a>
     <p> impressum</p>
 </footer>
-

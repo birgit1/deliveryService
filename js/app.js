@@ -1,10 +1,11 @@
 
-var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.translate', 'ngStorage', 'duScroll',
+var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap',  'pascalprecht.translate', 'ngStorage', 'duScroll',
             'Controller',
             'ModalController',
             'MenuController',
             'RestaurantController',
-            'OrderController'
+            'OrderController',
+            'SearchController'
 ])
     .config(['$routeProvider', function($routeProvider)
     {
@@ -17,6 +18,11 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap', 'pascalprecht.tran
             {
                 templateUrl: 'templates/menuNew.html',
                 controller: 'MenuCtrl'
+            })
+        .when('/search',
+            {
+                templateUrl: 'templates/search.html',
+                controller: 'SearchCtrl'
             })
         .when('/menu/:restaurantId',
             {

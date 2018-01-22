@@ -1,0 +1,27 @@
+
+<uib-tabset active="active">
+    <uib-tab index="0" heading="Search by Food">
+        <h1>What type of food would you like to order today?</h1>
+            <div class="row text-center" >
+                    <div class="col-sm-3" ng-repeat="food in foods" style="float: left">
+                        <div class="thumbnail" ng-click="selectFood(id)">
+                            <img class="img-select" ng-src="{{'data:image/png;base64,'+food.image}}" >
+                            <p><strong>{{food.name}}</strong></p>
+                        </div>
+                    </div>
+            </div>
+            <div class="btn btn-default">SEARCH</div>
+    </uib-tab>
+    <uib-tab index="1" heading="Search by Restaurant">
+        <h1>From which restaurant would you like to order today?</h1>
+            <div class="row text-center" >
+                    <div class="col-sm-3" ng-repeat="restaurant in restaurants" style="float: left">
+                        <div class="thumbnail" ng-click="selectRestaurant(id)">
+                            <img class="img-select" ng-src="{{'data:image/png;base64,'+restaurant.image}}" >
+                            <p><strong>{{restaurant.name}}</strong></p>
+                        </div>
+                    </div>
+            </div>
+    </uib-tab>
+    
+</uib-tabset>
