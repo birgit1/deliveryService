@@ -7,8 +7,10 @@ var controller = angular.module('SearchController', [])
         $scope.foods = [];
         $scope.restaurants = [];
 
+        $scope.activeTab = 0;
+
         // load restaurants from server request
-        $http({
+       /* $http({
             method : "GET",
             url : $scope.path+"/restaurant/getRestaurants",
             params: {sendImage: true}
@@ -17,7 +19,7 @@ var controller = angular.module('SearchController', [])
             console.log(response.data);
         }, function onError(response) {
             $scope.restaurants = response.statusText;
-        });
+        });*/
 
         // load foods from server request
         $http({
@@ -50,9 +52,22 @@ var controller = angular.module('SearchController', [])
             {
                 if($scope.foods[i].inSelection)
                     foodStyles.push($scope.foods[i]._id);
-                 console.log(foodStyles);
+            }
+            console.log(foodStyles);
                  
                  // server request -> restaurant with food styles
-            }
+                 $http({
+                    method : "GET",
+                    url : $scope.path+"/restaurant/getRestaurantCategories",
+                    params: {foods: foodStyles}
+                }).then(function onSuccess(response) {
+                    $scope.restaurants = response.data;
+                    console.log(response.data);
+                }, function onError(response) {
+                    $scope.restaurants = response.statusText;
+                });
+
+                 
+                 $scope.activeTab = 1;
         }
 });

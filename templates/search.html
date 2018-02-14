@@ -1,5 +1,5 @@
 
-<uib-tabset active="active">
+<uib-tabset active="activeTab">
     <uib-tab index="0" heading="Search by Food">
         <h1>What type of food would you like to order today?</h1>
             <div class="sr_container" >
@@ -21,7 +21,7 @@
             <div class="row text-center" >
                     <div class="col-sm-3" ng-repeat="restaurant in restaurants" style="float: left">
                         <div class="thumbnail" ng-click="selectRestaurant(id)">
-                            <img class="img-select" ng-src="{{'data:image/png;base64,'+restaurant.image}}" >
+                            <img class="img-select" ng-src="{{'data:image/png;base64,'+restaurant.images[0]}}" >
                             <p><strong>{{restaurant.name}}</strong></p>
                         </div>
                     </div>
