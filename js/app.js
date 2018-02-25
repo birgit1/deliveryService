@@ -5,7 +5,8 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap',  'pascalprecht.tra
             'MenuController',
             'RestaurantController',
             'OrderController',
-            'SearchController'
+            'SearchController',
+            'RestaurantController'
 ])
     .config(['$routeProvider', function($routeProvider)
     {
@@ -35,7 +36,10 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap',  'pascalprecht.tra
         }).
         when('/orderSuccessful', {
         templateUrl: 'templates/orderSuccessful.html'
-    })
+        }).
+        when('/restaurant', {
+        templateUrl: 'templates/restaurant.html'
+        })
         .otherwise({
         redirectTo: '/home'
         });

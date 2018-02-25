@@ -34,7 +34,7 @@ var controller = angular.module('MenuController', [])
             for(var i=0; i<$scope.categories.length; i++)
                 $scope.categorySelection.push($scope.categories[i]);
             console.log($scope.categorySelection);    
-        }
+        };
         
         $http({
             method : "GET",

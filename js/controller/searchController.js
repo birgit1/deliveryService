@@ -2,7 +2,7 @@
 
 
 var controller = angular.module('SearchController', [])
-.controller('SearchCtrl',function($scope, $http)
+.controller('SearchCtrl',function($scope, $http, $location)
 {
         $scope.foods = [];
         $scope.restaurants = [];
@@ -43,7 +43,7 @@ var controller = angular.module('SearchController', [])
             var inVal = $scope.foods[id].inSelection;
             $scope.foods[id].inSelection = !inVal;
             console.log(inVal+" -> "+$scope.foods[id].inSelection);
-        }
+        };
 
         $scope.searchFood = function()
         {
@@ -53,8 +53,6 @@ var controller = angular.module('SearchController', [])
                 if($scope.foods[i].inSelection)
                     foodStyles.push($scope.foods[i]._id);
             }
-            console.log(foodStyles);
-                 
                  // server request -> restaurant with food styles
                  $http({
                     method : "GET",
@@ -69,5 +67,11 @@ var controller = angular.module('SearchController', [])
 
                  
                  $scope.activeTab = 1;
+        };
+
+        $scope.seeRestaurant = function(id)
+        {
+            $scope.$parent.restaurant = $scope.restaurants[id];
+            $location.path('/restaurant');
         }
 });

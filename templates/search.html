@@ -20,7 +20,7 @@
         <h1>From which restaurant would you like to order today?</h1>
             <div class="row text-center" >
                     <div class="col-sm-3" ng-repeat="restaurant in restaurants" style="float: left">
-                        <div class="thumbnail" ng-click="selectRestaurant(id)">
+                        <div class="thumbnail" ng-click="showRestaurant($index)">
                             <img class="img-select" ng-src="{{'data:image/png;base64,'+restaurant.images[0]}}" >
                             <p><strong>{{restaurant.name}}</strong></p>
                         </div>

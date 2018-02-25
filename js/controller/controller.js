@@ -15,7 +15,7 @@ var controller = angular.module('Controller', [])
 
         $scope.status = ['order', 'orderFinished', 'processOrder'];
         $scope.orderStatus = $scope.status[0];
-
+        $scope.restaurant = {};
 
 
 

@@ -26,7 +26,7 @@ var controller = angular.module('RestaurantController', [])
 
         $scope.openMenu = function()
         {
-            console.log("SEARCH")
+            console.log("SEARCH");
             $location.path('/search');
         };
 
