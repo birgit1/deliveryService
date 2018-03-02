@@ -4,6 +4,7 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap',  'pascalprecht.tra
             'ModalController',
             'MenuController',
             'RestaurantController',
+            'HomeController',
             'OrderController',
             'SearchController',
             'RestaurantController'
@@ -13,7 +14,7 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap',  'pascalprecht.tra
     $routeProvider
         .when('/home', {
             templateUrl: 'templates/home.html',
-            controller: 'RestaurantCtrl'
+            controller: 'HomeCtrl'
             })
         .when('/menu',
             {
@@ -35,10 +36,11 @@ var app = angular.module('MyApp', ['ngRoute', 'ui.bootstrap',  'pascalprecht.tra
             controller: 'OrderCtrl'
         }).
         when('/orderSuccessful', {
-        templateUrl: 'templates/orderSuccessful.html'
+            templateUrl: 'templates/orderSuccessful.html'
         }).
         when('/restaurant', {
-        templateUrl: 'templates/restaurant.html'
+            templateUrl: 'templates/restaurant.html',
+            controller: 'RestaurantCtrl'
         })
         .otherwise({
         redirectTo: '/home'

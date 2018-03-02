@@ -10,7 +10,7 @@ var controller = angular.module('SearchController', [])
         $scope.activeTab = 0;
 
         // load restaurants from server request
-       /* $http({
+       $http({
             method : "GET",
             url : $scope.path+"/restaurant/getRestaurants",
             params: {sendImage: true}
@@ -19,12 +19,12 @@ var controller = angular.module('SearchController', [])
             console.log(response.data);
         }, function onError(response) {
             $scope.restaurants = response.statusText;
-        });*/
+        });
 
         // load foods from server request
         $http({
             method : "GET",
-            url : $scope.path+"/foodCategory/getFoodCategories",
+            url : $scope.path+"/foodCategory/getFoodCategories"
         }).then(function onSuccess(response) {
             $scope.foods = response.data;
             for(var i=0; i<$scope.foods.length; i++)
@@ -69,8 +69,9 @@ var controller = angular.module('SearchController', [])
                  $scope.activeTab = 1;
         };
 
-        $scope.seeRestaurant = function(id)
+        $scope.showRestaurant = function(id)
         {
+            console.log("go to resuatrant info");
             $scope.$parent.restaurant = $scope.restaurants[id];
             $location.path('/restaurant');
         }

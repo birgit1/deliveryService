@@ -1,7 +1,7 @@
 
 
-var controller = angular.module('RestaurantController', [])
-    .controller('RestaurantCtrl',function($scope, $translate, $location, $http)
+var controller = angular.module('HomeController', [])
+    .controller('HomeCtrl',function($scope, $translate, $location, $http)
     {
         console.log("home controller");
         $scope.restaurants = $http({
